@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.learning-coach/
+.coach-draft-*.json
+.claude/skills/learning-coach/
+.agents/skills/learning-coach/
+.claude/learning-coach-backups/
+.agents/learning-coach-backups/
