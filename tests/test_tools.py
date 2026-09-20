@@ -139,7 +139,9 @@ class Installation(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='coach install 空格 ')
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        # resolve() so expectations match destinations(), which resolves paths;
+        # on macOS the temp root is /var -> /private/var symlink.
+        self.root = Path(self.temp.name).resolve()
 
     def test_project_and_user_platform_paths(self):
         for scope in ('user', 'project'):
